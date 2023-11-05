@@ -108,7 +108,7 @@ console.log(openMenu)
             to="/jewellry"
             className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
           >
-            Jewellry
+            Jewellery
           </NavLink>
         </div>
       </div>
