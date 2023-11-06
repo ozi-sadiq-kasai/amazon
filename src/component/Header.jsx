@@ -9,7 +9,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 const Header = () => {
  const [openMenu,setOpenMenu] = useState(false)
  const toggleMenu = ()=> setOpenMenu(!openMenu)
-console.log(openMenu)
+ 
   return (
     <header className="h-14 pt-2 w-full bg-header text-white">
       <nav className="flex px-1">
@@ -90,7 +90,7 @@ console.log(openMenu)
           </div>
         </div>
       </nav>
-      <div className="bg-menu w-full p-1 max-sm:bottom-10">
+      <div className="bg-menu w-full p-1  max-sm:bottom-10">
         <div className="w-1/2 flex justify-between">
           <NavLink
             to="/men"
