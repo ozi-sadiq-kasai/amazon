@@ -11,7 +11,7 @@ const Header = () => {
  const toggleMenu = ()=> setOpenMenu(!openMenu)
  
   return (
-    <header className="h-14 pt-2 w-full bg-header text-white">
+    <header className="h-14 pt-2 w-full bg-header text-white fixed top-0 z-10">
       <nav className="flex px-1">
         <Link to="/">
           <img
@@ -91,7 +91,7 @@ const Header = () => {
         </div>
       </nav>
       <div className="bg-menu w-full p-1  max-sm:bottom-10">
-        <div className="w-1/2 flex justify-between">
+        <div className="w-1/2 flex justify-between max-sm:gap-y-5">
           <NavLink
             to="/men"
             className={({ isActive }) => (isActive ? 'text-orange-text' : null)}

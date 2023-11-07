@@ -30,7 +30,11 @@ if(!Array.isArray(slides) || slides.length === 0){
         return (
           <div>
             {index === current && (
-              <img src={slide.image} alt="slider" className="w-full h-96" />
+              <img
+                src={slide.image}
+                alt="slider"
+                className="w-full h-96 max-sm:h-auto"
+              />
             )}
           </div>
         )

@@ -33,11 +33,15 @@ export default {
       xtl: ['24px', '32px'],
     },
      screens: {
+      tiny:'599px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1440px',
     },
+    width: {
+     small:'150px'
+    }
     },
   },
   plugins: [],
