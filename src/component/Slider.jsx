@@ -21,6 +21,7 @@ const Slider = ({slides}) => {
      clearInterval(intervalId) // Cleanup the interval on component unmount
    }
  }, [current])
+ 
 if(!Array.isArray(slides) || slides.length === 0){
   return null // Return null if the slides are not provided or empty
 }

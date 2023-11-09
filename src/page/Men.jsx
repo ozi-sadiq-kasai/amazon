@@ -10,13 +10,17 @@ const Men = () => {
  const item = filteredMenItem.map((item) => (
    <section
      key={item.id}
-     className="border p-10 flex w-[250px] h-[350px] max-tiny:w-screen"
+     className="border p-10 flex w-[250px] h-[400px] max-tiny:w-screen"
    >
-     <div className='flex flex-col justify-center items-center'>
-       <img src={item.image} alt={item.name} className="w-48 max-md:w-24" />
-       <h2>{item.title}</h2>
-       <p>${item.price}</p>
-       <button>Add to Cart</button>
+     <div className="flex flex-col justify-center align-center">
+       <img src={item.image} alt={item.name} className="w-36 max-md:w-24" />
+       <div className='mt-4'>
+         <h2 className="font-medium text-sm leading-5">{item.title}</h2>
+         <p className="py-1">${item.price}</p>
+         <button className="bg-search py-1 px-3 text-slate-100 w-full m-auto">
+           Add to Cart
+         </button>
+       </div>
      </div>
    </section>
  ))

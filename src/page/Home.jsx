@@ -35,7 +35,7 @@ const menImg = filteredMen.map((item) => (
           initial={{ x: -500 }}
           animate={{ x: 10 }}
           transition={{ duration: 5 }}
-          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 max-sm:justify-center max-sm:items-center gap-9"
+          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
         >
           {menImg}
         </motion.div>
@@ -44,7 +44,7 @@ const menImg = filteredMen.map((item) => (
           initial={{ x: 1000 }}
           animate={{ x: 10 }}
           transition={{ duration: 4 }}
-          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 max-sm:justify-center max-sm:items-center gap-9"
+          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
         >
           {womenImg}
         </motion.div>
