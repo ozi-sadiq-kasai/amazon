@@ -22,7 +22,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-2 items-center w-full justify-around">
           <Link>
-            <div className="flex max-sm:hidden">
+            <div className="flex max-tiny:hidden">
               <MdOutlineLocationOn />
               <p className="text-smals">Deliver to Nigeria</p>
             </div>
@@ -34,17 +34,17 @@ const Header = () => {
               className="focus:outline-none pl-1 w-full max-sm:w-3/4"
             />
             <div className="absolute top-0 right-0 text-black h-full bg-search">
-              <FiSearch size={22} className="text-center pt-1 max-sm:pt-0" />
+              <FiSearch size={22} className="text-center pt-1 max-tiny:pt-0" />
             </div>
           </div>
           <div className="flex gap-x-4">
             <NavLink
               to="/signIn"
               className={({ isActive }) =>
-                isActive ? 'text-orange-text max-sm:hidden' : null
+                isActive ? 'text-orange-text max-tiny:hidden' : null
               }
             >
-              <p className="max-sm:hidden">SignIn</p>
+              <p className="max-tiny:hidden">SignIn</p>
             </NavLink>
             <NavLink
               to="/cart"
@@ -90,8 +90,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="bg-menu w-full p-1  max-sm:bottom-10">
-        <div className="w-1/2 flex justify-between max-sm:gap-y-5">
+      <div className="bg-menu w-full p-1  max-tiny:bottom-10">
+        <div className="w-1/2 flex justify-between max-tiny:gap-y-5">
           <NavLink
             to="/men"
             className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
