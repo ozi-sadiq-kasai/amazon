@@ -8,7 +8,7 @@ const Home = () => {
 
  const {products} = useContext(ProductContext)
  const filteredMen = products.filter((item)=>{
-          return item.category === "men's clothing" 
+   return item.category === "men's clothing" 
  }) 
 const menImg = filteredMen.map((item) => (
   <img key={item.id} src={item.image} alt={item.name} className="w-small" />

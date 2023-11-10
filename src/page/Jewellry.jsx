@@ -1,8 +1,11 @@
 import { useContext } from 'react'
 import { ProductContext } from '../context/ProductContext'
+import { CartContext } from '../context/CartContext'
 
 const Jewellry = () => {
   const { products } = useContext(ProductContext)
+  const { addToCart } = useContext(CartContext)
+
   const filteredJewellryItem = products.filter((item) => {
     return item.category === 'jewelery'
   })
@@ -15,9 +18,14 @@ const Jewellry = () => {
       <div className="flex flex-col justify-center align-center">
         <img src={item.image} alt={item.name} className="w-16 max-md:w-24" />
         <div className="mt-4">
-          <h2 className="font-medium text-sm leading-5 w-[150px]">{item.title}</h2>
+          <h2 className="font-medium text-sm leading-5 w-[150px]">
+            {item.title}
+          </h2>
           <p className="py-1">${item.price}</p>
-          <button className="bg-search py-1 px-3 text-slate-100 w-full m-auto">
+          <button
+            className="bg-search py-1 px-3 text-slate-100 w-full m-auto"
+            onClick={() => addToCart(item, item.id)}
+          >
             Add to Cart
           </button>
         </div>

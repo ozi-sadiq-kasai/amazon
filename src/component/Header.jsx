@@ -1,13 +1,15 @@
 import { Link,NavLink } from "react-router-dom"
-import { useState } from 'react'
+import { useState,useContext } from 'react'
 import { MdOutlineLocationOn } from 'react-icons/md'
 import { BsMinecart } from 'react-icons/bs'
 import { FiSearch } from 'react-icons/fi'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
+import {CartContext} from "../context/CartContext"
 
 const Header = () => {
  const [openMenu,setOpenMenu] = useState(false)
+ const {quantity} = useContext(CartContext)
  const toggleMenu = ()=> setOpenMenu(!openMenu)
  
   return (
@@ -52,6 +54,7 @@ const Header = () => {
                 isActive ? 'text-orange-text' : null
               }
             >
+             <div className='text-white'>{quantity}</div>
               <BsMinecart size={25} />
             </NavLink>
           </div>

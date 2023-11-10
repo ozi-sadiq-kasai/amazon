@@ -1,8 +1,11 @@
 import { useContext } from 'react'
 import { ProductContext } from '../context/ProductContext'
+import { CartContext } from '../context/CartContext'
 
 const Women = () => {
   const { products } = useContext(ProductContext)
+  const { addToCart } = useContext(CartContext)
+
   const filteredWomenItem = products.filter((item) => {
     return item.category === "women's clothing"
   })
@@ -17,7 +20,10 @@ const Women = () => {
         <div className="mt-4">
           <h2 className="font-medium text-sm leading-5">{item.title}</h2>
           <p className="py-1">${item.price}</p>
-          <button className="bg-search py-1 px-3 text-slate-100 w-full m-auto">
+          <button
+            className="bg-search py-1 px-3 text-slate-100 w-full m-auto"
+            onClick={() => addToCart(item, item.id)}
+          >
             Add to Cart
           </button>
         </div>
