@@ -29,30 +29,45 @@ const CartProvider = ({ children }) => {
       // console.log('Updated Cart:', [...cart, newItem])
     }
   }
-  // FUNCTION TO COUNT THE TOTAL QUANTITY
-  // useEffect(()=>{
-  //  if(cart){
-  // const totalQuantity = cart.reduce((accumulator, currentItem) => {
-  //   return accumulator + currentItem.quantity
-  // }, 0)
-  // setQuantity(totalQuantity)
-  //  }
-  //  console.log(quantity)
-  // })
+
+  // FUNCTION FOR TOTAL QUANTITY
   useEffect(() => {
     if (cart) {
       const totalQuantity = cart.reduce((accumulator, currentItem) => {
         return accumulator + currentItem.quantity
       }, 0)
-     setQuantity(totalQuantity)  
+      setQuantity(totalQuantity)
     }
-     
   }, [cart])
+
+  // FUNCTION TO INCREASE QUANTITY
+  const increaseQty = (id) => {
+    const cartItem = cart.find((item) => item.id === id)
+    if (cartItem) {
+      addToCart(cartItem, id)
+    }
+  }
+
+  // FUNCTION TO DECREASE QUANTITY
+const decreaseQty = (id)=>{
+ const cartItem = cart.find(item => item.id === id)
+ if (cartItem){
+  const newCart = cart.map((item)=>{
+   return {
+    ...item,
+    quantity: item.quantity - 1 > 0 ? item.quantity -1 : 0
+   }
+  })
+  setCart(newCart)
+ }
+}
+
+
 
 
 
   return (
-    <CartContext.Provider value={{ addToCart,cart,quantity }}>
+    <CartContext.Provider value={{ addToCart, cart, quantity, increaseQty,decreaseQty }}>
       {children}
     </CartContext.Provider>
   )

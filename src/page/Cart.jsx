@@ -2,7 +2,7 @@ import { CartContext } from "../context/CartContext"
 import { useContext } from "react"
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 const Cart = () => {
-const {cart} = useContext(CartContext)
+const { cart, increaseQty, decreaseQty } = useContext(CartContext)
 console.log(cart)
   return (
     <div className="mt-10">
@@ -11,10 +11,10 @@ console.log(cart)
           <img src={item.image} alt={item.title} />
           <p>{item.title}</p>
           <p>${item.price}</p>
-          <div className='flex items-center border w-12 justify-between'>
-            <AiOutlinePlus />
+          <div className="flex items-center border w-12 justify-between">
+            <AiOutlinePlus onClick={() => increaseQty(item.id)} />
             <p>{item.quantity}</p>
-            <AiOutlineMinus />
+            <AiOutlineMinus onClick={() => decreaseQty(item.id)} />
           </div>
         </div>
       ))}
