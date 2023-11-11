@@ -2,9 +2,14 @@ import { useContext } from "react"
 import { ProductContext } from "../context/ProductContext.jsx"
 import Slider from "../component/Slider"
 import { SlideImg } from "../../src/Data.js"
+import { useInView } from "react-intersection-observer"
 import { motion } from 'framer-motion'
 
 const Home = () => {
+ const [menRef,menInView] = useInView({triggerOnce:true})
+ const [womenRef,womenInView] = useInView({triggerOnce:true})
+ console.log('menInView:', menInView)
+ console.log('womenInView:', womenInView)
 
  const {products} = useContext(ProductContext)
  const filteredMen = products.filter((item)=>{
@@ -32,8 +37,9 @@ const menImg = filteredMen.map((item) => (
       <section className="px-8">
         <h2>Men's Item</h2>
         <motion.div
+          ref={menRef}
           initial={{ x: -500 }}
-          animate={{ x: 10 }}
+          animate={menInView ? { x: 0 } : { x: 10 }}
           transition={{ duration: 5 }}
           className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
         >
@@ -41,9 +47,10 @@ const menImg = filteredMen.map((item) => (
         </motion.div>
         <h2>Women's Item</h2>
         <motion.div
+          ref={womenRef}
           initial={{ x: 1000 }}
-          animate={{ x: 10 }}
-          transition={{ duration: 4 }}
+          animate={womenInView ? { x: 0 } : { x: -50 }}
+          transition={{ duration: 5 }}
           className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
         >
           {womenImg}
