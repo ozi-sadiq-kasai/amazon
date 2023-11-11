@@ -13,16 +13,16 @@ const Header = () => {
  const toggleMenu = ()=> setOpenMenu(!openMenu)
  
   return (
-    <header className="h-16 pt-2 w-full bg-header text-white fixed top-0 z-10 border">
-      <nav className="flex px-1 items-center justify-center border">
+    <header className="h-16 pt-2 w-full bg-header text-white fixed top-0 z-10">
+      <nav className="flex px-1 items-center justify-center">
         <Link to="/">
           <img
             src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="logo"
-            className="w-28 pl-1 max-sm:w-16"
+            className="w-28 pl-1 max-sm:w-30 mt-4 px-1"
           />
         </Link>
-        <div className="flex gap-2 items-center w-full justify-around border">
+        <div className="flex gap-2 items-center w-full justify-around">
           <Link>
             <div className="flex max-tiny:hidden">
               <MdOutlineLocationOn />
@@ -36,7 +36,7 @@ const Header = () => {
               className="focus:outline-none pl-1 w-full max-sm:w-3/4"
             />
             <div className="absolute top-0 right-0 text-black h-full bg-search">
-              <FiSearch size={22} className="text-center pt-1 max-tiny:pt-0" />
+              <FiSearch size={20} className="text-center pt-1 max-tiny:pt-0" />
             </div>
           </div>
           <div className="flex gap-x-4">
@@ -54,11 +54,13 @@ const Header = () => {
                 isActive ? 'text-orange-text' : null
               }
             >
-             <div className='text-white'>{quantity}</div>
+              <div className="text-orange-text text-center font-semibold">
+                {quantity}
+              </div>
               <BsMinecart size={25} />
             </NavLink>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden max-sm:p-1">
             <AiOutlineMenu
               onClick={toggleMenu}
               size={25}
@@ -66,10 +68,10 @@ const Header = () => {
             />
             {openMenu && (
               <div className="absolute top-0 right-0 h-screen w-64 bg-search">
-                  <AiOutlineClose
-                    onClick={toggleMenu}
-                    className="text-black text-2xl mb-10"
-                  />
+                <AiOutlineClose
+                  onClick={toggleMenu}
+                  className="text-black text-2xl mb-10"
+                />
                 <div>
                   <NavLink
                     to="signIn"
@@ -93,8 +95,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="bg-menu w-full p-1  max-tiny:bottom-10">
-        <div className="w-1/2 flex justify-between max-tiny:gap-y-5">
+      <div className="bg-menu w-full p-1  max-tiny:bottom-10 ">
+        <div className="w-1/2 flex justify-between max-tiny:gap-y-5 font-lato">
           <NavLink
             to="/men"
             className={({ isActive }) => (isActive ? 'text-orange-text' : null)}

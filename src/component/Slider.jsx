@@ -34,7 +34,7 @@ if(!Array.isArray(slides) || slides.length === 0){
               <img
                 src={slide.image}
                 alt="slider"
-                className="w-full h-96 max-sm:h-auto"
+                className="w-full h-96 max-sm:h-auto max-sm:mt-[89px]"
               />
             )}
           </div>

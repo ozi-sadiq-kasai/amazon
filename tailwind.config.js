@@ -11,6 +11,9 @@ export default {
       'search':'#F3A847',
       'menu':'#232F3E',
      },
+      fontFamily: {
+       "lato": ['Lato', 'sans-serif'] 
+      },
      textColor:{
       'orange-text':'#F3A847'
      },
