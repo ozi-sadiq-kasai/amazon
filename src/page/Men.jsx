@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { Link } from 'react-router-dom'
 import { ProductContext } from "../context/ProductContext"
 import {CartContext} from "../context/CartContext"
 
@@ -29,9 +30,12 @@ const Men = () => {
             <div className="mt-4">
               <h2 className="font-medium text-sm leading-5">{item.title}</h2>
               <p className="py-1">${item.price}</p>
+              <Link to={`/details/${item.id}`}>
+               <p>product details</p>
+              </Link>
               <button
                 className="bg-search py-1 px-3 text-slate-100 w-full m-auto"
-                onClick={() => addToCart( item,item.id)}
+                onClick={() => addToCart(item, item.id)}
               >
                 Add to Cart
               </button>

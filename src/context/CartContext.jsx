@@ -47,19 +47,41 @@ const CartProvider = ({ children }) => {
       addToCart(cartItem, id)
     }
   }
+ // CLEAR CART
+ const clearCart = ()=>{
+  setCart([])
+ }
+
+  // REMOVE FROM CART
+  const removeFromCart=(id)=>{
+   const newCart = cart.filter(item => item.id !== id)
+   setCart(newCart)
+  }
 
   // FUNCTION TO DECREASE QUANTITY
 const decreaseQty = (id)=>{
- const cartItem = cart.find(item => item.id === id)
- if (cartItem){
-  const newCart = cart.map((item)=>{
-   return {
-    ...item,
-    quantity: item.quantity - 1 > 0 ? item.quantity -1 : 0
-   }
-  })
-  setCart(newCart)
- }
+
+  const cartItem = cart.find((item) => item.id === id)
+
+  if (cartItem) {
+    // If the item is found in the cart, decrease its amount
+    const newCart = cart.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: item.quantity - 1 }
+      } else {
+        return item
+      }
+    })
+
+    // Check if the updated amount is less than 2
+    if (cartItem.quantity < 2) {
+      // If so, remove the item from the cart
+      removeFromCart(id)
+    } else {
+      // Otherwise, update the cart
+      setCart(newCart)
+    }
+  }
 }
 
 
@@ -67,7 +89,7 @@ const decreaseQty = (id)=>{
 
 
   return (
-    <CartContext.Provider value={{ addToCart, cart, quantity, increaseQty,decreaseQty }}>
+    <CartContext.Provider value={{ addToCart, cart, quantity, increaseQty,decreaseQty,clearCart,removeFromCart }}>
       {children}
     </CartContext.Provider>
   )
