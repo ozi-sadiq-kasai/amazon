@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
      backgroundColor:{
-      'header':'#231F20',
+      'header':'#252422',
       'search':'#F3A847',
       'menu':'#232F3E',
      },

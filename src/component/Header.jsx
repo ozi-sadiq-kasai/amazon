@@ -13,16 +13,16 @@ const Header = () => {
  const toggleMenu = ()=> setOpenMenu(!openMenu)
  
   return (
-    <header className="h-14 pt-2 w-full bg-header text-white fixed top-0 z-10">
-      <nav className="flex px-1">
+    <header className="h-16 pt-2 w-full bg-header text-white fixed top-0 z-10 border">
+      <nav className="flex px-1 items-center justify-center border">
         <Link to="/">
           <img
             src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="logo"
-            className="w-20 pl-1 max-sm:w-16 "
+            className="w-28 pl-1 max-sm:w-16"
           />
         </Link>
-        <div className="flex gap-2 items-center w-full justify-around">
+        <div className="flex gap-2 items-center w-full justify-around border">
           <Link>
             <div className="flex max-tiny:hidden">
               <MdOutlineLocationOn />
@@ -65,12 +65,12 @@ const Header = () => {
               style={{ color: 'white' }}
             />
             {openMenu && (
-              <div className="absolute top-0 right-0 h-full w-64 bg-search">
+              <div className="absolute top-0 right-0 h-screen w-64 bg-search">
                   <AiOutlineClose
                     onClick={toggleMenu}
                     className="text-black text-2xl mb-10"
                   />
-                <div className="flex flex-col justify-center items-center gap-2">
+                <div>
                   <NavLink
                     to="signIn"
                     className={({ isActive }) =>
