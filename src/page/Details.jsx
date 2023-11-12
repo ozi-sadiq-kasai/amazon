@@ -15,14 +15,16 @@ const Details = () => {
   }, [params.id])
 
   return (
-    <div className="mt-20 min-h-screen">
+    <div className="mt-20 min-h-screen font-lato">
       <p>Details</p>
       {details ? (
         <section key={details.id}>
           <img src={details.image} alt={details.title} />
           <h1>{details.title}</h1>
           <p>{details.description}</p>
-          <button onClick={()=>addToCart(details,details.id)}>Add to Cart</button>
+          <button onClick={() => addToCart(details, details.id)}>
+            Add to Cart
+          </button>
         </section>
       ) : (
         <div>Loading...</div>

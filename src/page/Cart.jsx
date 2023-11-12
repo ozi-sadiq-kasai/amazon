@@ -8,7 +8,7 @@ const Cart = () => {
 const { cart, increaseQty, decreaseQty, clearCart } = useContext(CartContext)
 console.log(cart)
   return (
-    <div className="mt-[130px] min-h-screen">
+    <div className="mt-[130px] min-h-screen font-lato">
       <h2 className="text-center mt-10">My Cart Items</h2>
       {cart.map((item) => (
         <div key={item.id}>

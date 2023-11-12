@@ -13,7 +13,7 @@ const Header = () => {
  const toggleMenu = ()=> setOpenMenu(!openMenu)
  
   return (
-    <header className="h-16 pt-2 w-full bg-header text-white fixed top-0 z-10">
+    <header className="h-16 pt-2 w-full bg-header text-white fixed top-0 z-10 font-lato">
       <nav className="flex px-1 items-center justify-center">
         <Link to="/">
           <img

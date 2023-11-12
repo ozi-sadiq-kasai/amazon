@@ -62,7 +62,7 @@ const Home = () => {
   ))
 
   return (
-    <main className="mt-16">
+    <main className="mt-16 font-lato">
       <Slider slides={SlideImg} />
       <section className="px-8">
         <h2>Men's Item</h2>
