@@ -14,13 +14,13 @@ const Women = () => {
   const item = filteredWomenItem.map((item) => (
     <section
       key={item.id}
-      className="flex w-[250px] h-[400px] justify-center items-center font-lato flex-col"
+      className="flex w-[250px] h-[400px] justify-center items-center font-lato flex-col ax-tiny:w-full max-tiny:mt-16"
     >
-      <div>
+      <div className="max-tiny:w-auto">
         <img
           src={item.image}
           alt={item.name}
-          className="w-48 h-56 max-md:w-24"
+          className="w-48 h-56 max-md:w-24 m-auto"
         />
         <h2 className="font-bold text-sm leading-5">{item.title}</h2>
         <p className="py-1">${item.price}</p>

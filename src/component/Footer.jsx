@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-header py-4 text-orange-text text-center font-lato">
+    <footer className="bg-header text-orange-text text-center font-lato fixed bottom-0 w-full">
       &copy; produced by Ozi Kasai
     </footer>
   )

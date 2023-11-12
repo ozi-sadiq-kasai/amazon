@@ -25,7 +25,7 @@ export default {
     },
      screens: {
       tiny:'599px',
-      sm: '640px',
+      sm: '600px',
       md: '768px',
       lg: '1024px',
       xl: '1440px',

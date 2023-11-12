@@ -12,17 +12,19 @@ const Men = () => {
  })
 
   return (
-    <main 
-    className="flex items-center h-screen justify-center flex-wrap gap-8 max-tiny:p-4 font-lato"
-    >
+    <main className="flex flex-wrap items-center max-tiny:h-screen  mt-32 justify-center  font-lato max-tiny:mt-24  max-tiny:border-2 max-tiny:border-red-900">
       {filteredMenItem.map((item) => (
         <section
           key={item.id}
-          className="flex w-[270px]] max-tiny:w-screen m-auto"
+          className="flex w-[270px] max-tiny:w-screen border-1 border-red-900 m-auto max-tiny:pb-8"
         >
-          <div className="flex flex-col justify-center m-auto">
-            <img src={item.image} alt={item.title} className="w-48 h-56 m-auto" />
-            <h2 className="font-bold text-sm leading-5 w-1/2">
+          <div className="flex flex-col justify-center border-2 border-green-900 w-full h-[450px] max-tiny:border-2 max-tiny:border-red-900 max-tiny:w-full max-tiny:m-auto">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-48 h-56 m-auto max-tiny:w-36 max-tiny:h-auto "
+            />
+            <h2 className="font-bold text-sm leading-5  max-tiny:w-full">
               {item.title}
             </h2>
             <p className="py-1">${item.price}</p>

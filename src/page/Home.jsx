@@ -65,15 +65,15 @@ const Home = () => {
     <main className="mt-16 font-lato">
       <Slider slides={SlideImg} />
       <section className="px-8">
-        <h2>Men's Item</h2>
+        <h2 className="text-slate-500">Men's Item</h2>
         <div className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9">
           {menImg}
         </div>
-        <h2>Women's Item</h2>
+        <h2 className="text-slate-500">Women's Item</h2>
         <div className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9">
           {womenImg}
         </div>
-        <h2>Jewellery</h2>
+        <h2 className="text-slate-500">Jewellery</h2>
         <div className="flex flex-wrap justify-around py-2 max-sm:justify-center max-sm:items-center gap-9">
           {jewelleryImg}
         </div>
