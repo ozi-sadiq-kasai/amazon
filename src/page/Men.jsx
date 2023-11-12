@@ -12,31 +12,32 @@ const Men = () => {
  })
 
   return (
-    <main className="flex items-center justify-center flex-wrap mt-[91px] gap-8 py-8 max-tiny:p-4 font-lato  bg-red-900">
+    <main 
+    className="flex items-center h-screen justify-center flex-wrap gap-8 max-tiny:p-4 font-lato"
+    >
       {filteredMenItem.map((item) => (
         <section
           key={item.id}
-          className="border flex w-[250px] h-[350px] max-tiny:w-screen"
+          className="flex w-[270px]] max-tiny:w-screen m-auto"
         >
-          <div className="flex flex-col justify-center align-center">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-36 max-md:w-24"
-            />
-            <div className="mt-4">
-              <h2 className="font-medium text-sm leading-5">{item.title}</h2>
-              <p className="py-1">${item.price}</p>
-              <Link to={`/details/${item.id}`}>
-                <p>product details</p>
-              </Link>
-              <button
-                className="bg-search py-1 px-3 text-slate-100 w-full m-auto"
-                onClick={() => addToCart(item, item.id)}
-              >
-                Add to Cart
-              </button>
-            </div>
+          <div className="flex flex-col justify-center m-auto">
+            <img src={item.image} alt={item.title} className="w-48 h-56 m-auto" />
+            <h2 className="font-bold text-sm leading-5 w-1/2">
+              {item.title}
+            </h2>
+            <p className="py-1">${item.price}</p>
+            <Link
+              to={`/details/${item.id}`}
+              className="font-light text-sm hover:text-orange-text text-slate-400 "
+            >
+              more details
+            </Link>
+            <button
+              className="bg-search py-1 px-3 text-slate-100 w-full"
+              onClick={() => addToCart(item, item.id)}
+            >
+              Add to Cart
+            </button>
           </div>
         </section>
       ))}

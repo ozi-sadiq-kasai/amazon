@@ -95,7 +95,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="bg-menu w-full p-1  max-tiny:bottom-10 ">
+      <div className="bg-menu w-full p-2  max-tiny:bottom-10 ">
         <div className="w-1/2 flex justify-between max-tiny:gap-y-5 font-lato">
           <NavLink
             to="/men"
