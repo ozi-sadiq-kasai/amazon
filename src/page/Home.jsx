@@ -1,72 +1,85 @@
-import { useContext } from "react"
-import { ProductContext } from "../context/ProductContext.jsx"
-import Slider from "../component/Slider"
-import { SlideImg } from "../../src/Data.js"
-import { useInView } from "react-intersection-observer"
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
+import Slider from '../component/Slider'
+import { SlideImg } from '../../src/Data.js'
 import { motion } from 'framer-motion'
+import { ProductContext } from '../context/ProductContext.jsx'
+
+const RevealOnScroll = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false)
+  const [ref, inView] = useInView({ triggerOnce: true })
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true)
+    }
+  }, [inView])
+  
+   const slideAnimation = {
+     hidden: { opacity: 0, x: -20 },
+     visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
+   }
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={slideAnimation}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 const Home = () => {
- const [menRef,menInView] = useInView({triggerOnce:true})
- const [womenRef,womenInView] = useInView({triggerOnce:true})
- console.log('menInView:', menInView)
- console.log('womenInView:', womenInView)
+  const { products } = useContext(ProductContext)
+  const filteredMen = products.filter(
+    (item) => item.category === "men's clothing"
+  )
+  const menImg = filteredMen.map((item) => (
+    <RevealOnScroll key={item.id}>
+      <img src={item.image} alt={item.name} className="w-small" />
+    </RevealOnScroll>
+  ))
 
- const {products} = useContext(ProductContext)
- const filteredMen = products.filter((item)=>{
-   return item.category === "men's clothing" 
- }) 
-const menImg = filteredMen.map((item) => (
-  <img key={item.id} src={item.image} alt={item.name} className="w-small" />
-))
- const filteredWomen = products.filter((item) => {
-   return item.category === "women's clothing"
- }).slice(0,4)
- const womenImg = filteredWomen.map((item) => (
-   <img key={item.id} src={item.image} alt={item.name} className="w-small" />
- ))
- const filteredJewellery = products.filter((item) => {
-   return item.category === 
-"jewelery"
- })
- const jewelleryImg = filteredJewellery.map((item) => (
-   <img key={item.id} src={item.image} alt={item.name} className="w-[100px]" />
- ))
+  const filteredWomen = products
+    .filter((item) => item.category === "women's clothing")
+    .slice(0, 4)
+  const womenImg = filteredWomen.map((item) => (
+    <RevealOnScroll key={item.id}>
+      <img src={item.image} alt={item.name} className="w-small" />
+    </RevealOnScroll>
+  ))
+
+  const filteredJewellery = products.filter(
+    (item) => item.category === 'jewelery'
+  )
+  const jewelleryImg = filteredJewellery.map((item) => (
+    <RevealOnScroll key={item.id}>
+      <img src={item.image} alt={item.name} className="w-[100px]" />
+    </RevealOnScroll>
+  ))
+
   return (
     <main className="mt-16">
       <Slider slides={SlideImg} />
       <section className="px-8">
         <h2>Men's Item</h2>
-        <motion.div
-          ref={menRef}
-          initial={{ x: -500 }}
-          animate={menInView ? { x: 0 } : { x: 10 }}
-          transition={{ duration: 5 }}
-          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
-        >
+        <div className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9">
           {menImg}
-        </motion.div>
+        </div>
         <h2>Women's Item</h2>
-        <motion.div
-          ref={womenRef}
-          initial={{ x: 1000 }}
-          animate={womenInView ? { x: 0 } : { x: -50 }}
-          transition={{ duration: 5 }}
-          className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9"
-        >
+        <div className="flex flex-wrap border-b-2 border-gray-100 justify-around py-2 gap-9">
           {womenImg}
-        </motion.div>
+        </div>
         <h2>Jewellery</h2>
-        <motion.div
-          initial={{ x: -500 }}
-          animate={{ x: 10 }}
-          transition={{ duration: 5 }}
-          className="flex  flex-wrap justify-around py-2 max-sm:justify-center max-sm:items-center gap-9"
-        >
+        <div className="flex flex-wrap justify-around py-2 max-sm:justify-center max-sm:items-center gap-9">
           {jewelleryImg}
-        </motion.div>
+        </div>
       </section>
     </main>
   )
-   
 }
+
 export default Home
