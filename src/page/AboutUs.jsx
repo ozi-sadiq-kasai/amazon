@@ -28,7 +28,7 @@ const AboutUs = () => {
         </p>
 
         <h2 className="text-lg font-semibold text-orange-400">Shopping Cart</h2>
-        <p>
+        <p className=" mb-5">
           Your shopping cart is where all the magic happens. Add items to your
           cart, review your selections, and proceed to checkout. It's that easy
           to shop online with us!
