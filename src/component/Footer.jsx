@@ -1,7 +1,14 @@
+import { BsInstagram } from 'react-icons/bs'
+import { BiLogoFacebook } from 'react-icons/bi'
+import { RiTwitterXFill } from 'react-icons/ri'
 const Footer = () => {
   return (
-    <footer className="bg-header text-orange-text text-center font-lato fixed bottom-0 w-full">
-      &copy; produced by Ozi Kasai
+    <footer className="bg-header text-orange-text font-lato fixed bottom-0 w-full h-4 py-3">
+      <ul className="flex justify-center items-center gap-4">
+        <BsInstagram size={17} />
+        <BiLogoFacebook size={17} />
+        <RiTwitterXFill size={17} />
+      </ul>
     </footer>
   )
 }

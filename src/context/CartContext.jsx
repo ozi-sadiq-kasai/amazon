@@ -9,6 +9,8 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   // State for managing the quantity
   const [quantity, setQuantity] = useState(0)
+// State for Grand Total
+  const [grandTotal, setGrandTotal] = useState(0)
 
   // FUNCTION TO ADD ITEM TO CART
   const addToCart = (product, id) => {
@@ -47,49 +49,63 @@ const CartProvider = ({ children }) => {
       addToCart(cartItem, id)
     }
   }
- // CLEAR CART
- const clearCart = ()=>{
-  setCart([])
- }
+  // CLEAR CART
+  const clearCart = () => {
+    setCart([])
+  }
 
   // REMOVE FROM CART
-  const removeFromCart=(id)=>{
-   const newCart = cart.filter(item => item.id !== id)
-   setCart(newCart)
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id)
+    setCart(newCart)
   }
 
   // FUNCTION TO DECREASE QUANTITY
-const decreaseQty = (id)=>{
+  const decreaseQty = (id) => {
+    const cartItem = cart.find((item) => item.id === id)
 
-  const cartItem = cart.find((item) => item.id === id)
+    if (cartItem) {
+      // If the item is found in the cart, decrease its amount
+      const newCart = cart.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity - 1 }
+        } else {
+          return item
+        }
+      })
 
-  if (cartItem) {
-    // If the item is found in the cart, decrease its amount
-    const newCart = cart.map((item) => {
-      if (item.id === id) {
-        return { ...item, quantity: item.quantity - 1 }
+      // Check if the updated amount is less than 2
+      if (cartItem.quantity < 2) {
+        // If so, remove the item from the cart
+        removeFromCart(id)
       } else {
-        return item
+        // Otherwise, update the cart
+        setCart(newCart)
       }
-    })
-
-    // Check if the updated amount is less than 2
-    if (cartItem.quantity < 2) {
-      // If so, remove the item from the cart
-      removeFromCart(id)
-    } else {
-      // Otherwise, update the cart
-      setCart(newCart)
     }
   }
-}
 
-
-
-
+  // total price state
+  useEffect(() => {
+    const total = cart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.price * currentItem.quantity
+    }, 0)
+    setGrandTotal(total)
+  })
 
   return (
-    <CartContext.Provider value={{ addToCart, cart, quantity, increaseQty,decreaseQty,clearCart,removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        addToCart,
+        cart,
+        quantity,
+        increaseQty,
+        decreaseQty,
+        clearCart,
+        removeFromCart,
+        grandTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )

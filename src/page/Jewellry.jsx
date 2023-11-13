@@ -10,28 +10,22 @@ const Jewellry = () => {
   const filteredJewellryItem = products.filter((item) => {
     return item.category === 'jewelery'
   })
-  
+
   const item = filteredJewellryItem.map((item) => (
-    <section
-      key={item.id}
-      className="flex w-[250px] h-[400px] justify-center items-center font-lato flex-col"
-    >
-      <div>
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-32 h-48 max-md:w-24"
-        />
-        <h2 className="font-bold text-sm leading-5 w-[150px]">{item.title}</h2>
-        <p className="py-1">${item.price}</p>
+    <section key={item.id} className="tiny:w-[300px] font-lato">
+      <img src={item.image} alt={item.name} className="w-16 m-auto" />
+
+      <h2 className="font-semibold leading-5 text-medium w-64">{item.title}</h2>
+      <p className="">${item.price}</p>
+      <div className="flex flex-col">
         <Link
           to={`/details/${item.id}`}
-          className="font-light text-sm hover:text-orange-text text-slate-400 "
+          className="hover:text-green-700 cursor-pointer text-sm"
         >
           more details
         </Link>
         <button
-          className="bg-search py-1 px-3 text-slate-100 w-full"
+          className="bg-orange-300 text-slate-200 hover:text-orange-300 hover:bg-header py-1 w-44"
           onClick={() => addToCart(item, item.id)}
         >
           Add to Cart
@@ -40,7 +34,7 @@ const Jewellry = () => {
     </section>
   ))
   return (
-    <main className="flex justify-around items-center flex-wrap py-24 gap-4 mt-5 max-tiny:p-4">
+    <main className="mt-28 flex flex-wrap gap-8 justify-around items-center pb-12 pt-2">
       {item}
     </main>
   )

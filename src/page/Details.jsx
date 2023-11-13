@@ -15,16 +15,29 @@ const Details = () => {
   }, [params.id])
 
   return (
-    <div className="mt-20 min-h-screen font-lato">
-      <p>Details</p>
+    <div className="mt-28 text-center font-lato h-full">
       {details ? (
-        <section key={details.id}>
-          <img src={details.image} alt={details.title} />
-          <h1>{details.title}</h1>
-          <p>{details.description}</p>
-          <button onClick={() => addToCart(details, details.id)}>
-            Add to Cart
-          </button>
+        <section
+          key={details.id}
+          className="flex justify-center items-center max-sm:flex-col mt-46"
+        >
+          <img
+            src={details.image}
+            alt={details.title}
+            className="w-1/4 flex-1"
+          />
+          <div className="flex-2">
+            <h1 className="font-semibold text-lg">{details.title}</h1>
+            <p className="text-sm font-thin text-justify px-2">
+              {details.description}
+            </p>
+            <button
+              onClick={() => addToCart(details, details.id)}
+              className="mt-3 bg-orange-300 text-slate-200 hover:text-orange-300 hover:bg-header py-1 w-44"
+            >
+              Add to Cart
+            </button>
+          </div>
         </section>
       ) : (
         <div>Loading...</div>

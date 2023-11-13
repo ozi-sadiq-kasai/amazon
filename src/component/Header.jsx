@@ -29,6 +29,12 @@ const Header = () => {
               <p className="text-smals">Deliver to Nigeria</p>
             </div>
           </Link>
+          <NavLink
+            to="aboutus"
+            className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
+          >
+            About Us
+          </NavLink>
           <div className="w-1/2 bg-white relative py-1 max-sm:w-3/4 text-gray-700 max-sm:py-0">
             <input
               type="text"
@@ -98,16 +104,16 @@ const Header = () => {
       <div className="bg-menu w-full p-2  max-tiny:bottom-10 ">
         <div className="w-1/2 flex justify-between max-tiny:gap-y-5 font-lato">
           <NavLink
-            to="/men"
-            className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
-          >
-            Men
-          </NavLink>
-          <NavLink
             to="/women"
             className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
           >
             Women
+          </NavLink>
+          <NavLink
+            to="/men"
+            className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
+          >
+            Men
           </NavLink>
           <NavLink
             to="/jewellry"

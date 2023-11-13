@@ -12,10 +12,7 @@ const Women = () => {
   })
   
   const item = filteredWomenItem.map((item) => (
-    <section
-      key={item.id}
-      className="tiny:w-[300px] font-lato"
-    >
+    <section key={item.id} className="tiny:w-[300px] font-lato">
       <img src={item.image} alt={item.name} className="w-36 m-auto" />
 
       <h2 className="font-semibold leading-5 text-medium w-64">{item.title}</h2>
@@ -23,7 +20,7 @@ const Women = () => {
       <div className="flex flex-col">
         <Link
           to={`/details/${item.id}`}
-          className="hover:text-orange-700 cursor-pointer text-sm"
+          className="hover:text-green-700 cursor-pointer text-sm"
         >
           more details
         </Link>
