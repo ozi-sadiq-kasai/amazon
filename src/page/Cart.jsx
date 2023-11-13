@@ -32,18 +32,19 @@ const { cart, increaseQty, decreaseQty, clearCart, grandTotal } = useContext(Car
       <div className="uppercase font-semibold bg-orange-400 p-2">
         <span>Grand Total:</span> $ {parseFloat(grandTotal).toFixed(2)}
       </div>
-      <BsTrash3
-        size={30}
-        style={{
-          color: 'red',
-          marginLeft: '10px',
-          cursor: 'pointer',
-          marginBottom: '40px',
-        }}
-        onClick={() => {
-          clearCart()
-        }}
-      />
+      <div className='flex justify-between items-center mb-10'>
+        <button className='border bg-green-600 py-3 text-slate-300 px-12 cursor-pointer'>CheckOut</button>
+        <BsTrash3
+          size={30}
+          style={{
+            color: 'red',
+            cursor: 'pointer'
+          }}
+          onClick={() => {
+            clearCart()
+          }}
+        />
+      </div>
     </div>
   )
 }

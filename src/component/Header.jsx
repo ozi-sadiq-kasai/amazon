@@ -29,12 +29,16 @@ const Header = () => {
               <p className="text-smals">Deliver to Nigeria</p>
             </div>
           </Link>
-          <NavLink
-            to="aboutus"
-            className={({ isActive }) => (isActive ? 'text-orange-text' : null)}
-          >
-            About Us
-          </NavLink>
+          <div className='max-tiny:hidden text-sm'>
+            <NavLink
+              to="aboutus"
+              className={({ isActive }) =>
+                isActive ? 'text-orange-text' : null
+              }
+            >
+              About Us
+            </NavLink>
+          </div>
           <div className="w-1/2 bg-white relative py-1 max-sm:w-3/4 text-gray-700 max-sm:py-0">
             <input
               type="text"
@@ -76,9 +80,9 @@ const Header = () => {
               <div className="absolute top-0 right-0 h-screen w-64 bg-search">
                 <AiOutlineClose
                   onClick={toggleMenu}
-                  className="text-black text-2xl mb-10"
+                  className="text-black text-2xl mb-10 cursor-pointer"
                 />
-                <div>
+                <div className='flex flex-col justify-center items-center gap-5'>
                   <NavLink
                     to="signIn"
                     className={({ isActive }) =>
