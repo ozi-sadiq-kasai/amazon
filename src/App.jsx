@@ -8,6 +8,7 @@ import Men from "./page/Men"
 import Jewellry from "./page/Jewellry"
 import AboutUs from "./page/AboutUs"
 import Details from "./page/Details"
+import 'react-toastify/dist/ReactToastify.css'
 export default function App() {
   return (
     <BrowserRouter>
